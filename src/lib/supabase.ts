@@ -48,6 +48,7 @@ type AuthClient = {
       full_name?: string;
     };
   }) => AuthResult<{ user: AuthUser | null }>;
+  signInAsGuest: () => AuthResult<{ session: AuthSession | null }>;
 };
 
 type LocalAccount = {
@@ -268,6 +269,23 @@ const localAuth: AuthClient = {
       error: null,
     };
   },
+  async signInAsGuest() {
+    const guestAccount: LocalAccount = {
+      id: "guest-user",
+      email: "guest@docuprint.demo",
+      password: "guest-password-not-used",
+      fullName: "Guest Demo User",
+    };
+
+    const session = makeSession(guestAccount);
+    saveStoredSession(session);
+    emitAuthState("SIGNED_IN", session);
+
+    return {
+      data: { session },
+      error: null,
+    };
+  },
 };
 
 export const supabase = isSupabaseConfigured
@@ -286,4 +304,14 @@ if (!isSupabaseConfigured) {
   );
 }
 
-export const authClient: AuthClient = supabase?.auth ?? localAuth;
+const getAuthClient = (): AuthClient => {
+  if (supabase) {
+    return {
+      ...supabase.auth,
+      signInAsGuest: localAuth.signInAsGuest,
+    } as unknown as AuthClient;
+  }
+  return localAuth;
+};
+
+export const authClient: AuthClient = getAuthClient();

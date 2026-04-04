@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/AuthProvider";
-import { isSupabaseConfigured, supabase } from "@/lib/supabase";
+import { authClient, isSupabaseConfigured, supabase } from "@/lib/supabase";
 
 type Phase = "intro" | "printer" | "form";
 
@@ -446,6 +446,30 @@ const SignUpForm = ({ onBackToIntro }: { onBackToIntro: () => void }) => {
                 {mode === "signup" ? "Sign in" : "Create one"}
               </button>
             </p>
+
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] flex-1 bg-foreground/15" />
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">or</span>
+              <div className="h-[1px] flex-1 bg-foreground/15" />
+            </div>
+
+            <button
+              onClick={async () => {
+                setSubmitting(true);
+                const { error } = await authClient.signInAsGuest();
+                setSubmitting(false);
+                if (error) {
+                  setStatus(error.message);
+                } else {
+                  navigate("/dashboard");
+                }
+              }}
+              className="brutal-btn-outline block w-full text-center"
+              disabled={submitting}
+            >
+              Continue as Guest
+            </button>
+
             {status ? <p className="text-center font-mono text-xs text-muted-foreground">{status}</p> : null}
             <button onClick={onBackToIntro} className="block w-full text-center font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground underline underline-offset-4">
               Back to intro
