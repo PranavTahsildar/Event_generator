@@ -26,5 +26,6 @@ export const config = {
   pollinationsModel:
     process.env.POLLINATIONS_MODEL ||
     "flux",
+  mistralApiKey: process.env.MISTRAL_API_KEY || "",
   appName: "DocuPrint",
 };
