@@ -52,7 +52,7 @@ To significantly reduce documentation time for events by automating the creation
 |---|---|
 | Google Gemini (`@google/generative-ai`) | Proposal narrative generation |
 | Mistral AI (via fetch) | Post-event report generation |
-| OpenAI (via fetch) | Flyer concept generation |
+| Pollinations | Flyer concept generation |
 
 ---
 
@@ -78,10 +78,10 @@ cp .env.example .env.local   # or create manually
 
 ### 🔑 Environment Variables (`.env.local`)
 ```env
-GEMINI_API_KEY=<your-google-gemini-api-key>      # For proposal generation
-MISTRAL_API_KEY=<your-mistral-api-key>           # For report narrative generation
-OPENAI_API_KEY=<your-openai-api-key>             # For flyer concept generation (optional)
-PORT=8787                                         # Backend port (default: 8787)
+GEMINI_API_KEY=<your-google-gemini-api-key>        # For proposal generation
+MISTRAL_API_KEY=<your-mistral-api-key>             # For report narrative generation
+POLLINATIONS_API_KEY=<your-pollinations-api-key>   # For flyer generation
+PORT=8787                                          # Backend port (default: 8787)
 ```
 
 > All API keys are optional — the system falls back to template-based generation when keys are absent.
@@ -163,6 +163,7 @@ YouTube link here
 ## 📚 References
 - [Google Generative AI (Gemini)](https://ai.google.dev/)
 - [Mistral AI API](https://docs.mistral.ai/)
+- [POLLINATIONS API KEY](https://enter.pollinations.ai/)
 - [pdf-lib Documentation](https://pdf-lib.js.org/)
 - [Radix UI](https://www.radix-ui.com/)
 - [Pillai College of Engineering](https://www.pce.ac.in/)
