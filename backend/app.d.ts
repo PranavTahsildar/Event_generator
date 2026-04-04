@@ -6,3 +6,5 @@ declare module "./app.js" {
 }
 
 export {};
+
+export {};
