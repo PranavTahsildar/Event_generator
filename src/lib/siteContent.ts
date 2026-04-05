@@ -1,23 +1,38 @@
 export const teamMembers = [
   {
-    name: "Team Member 01",
-    role: "Frontend & Experience",
-    contribution: "Built the user journey, responsive layouts, and document flow screens.",
+    name: "Aakash Valliyil",
+    role: "Proposals",
+    contribution: "Proposal Generation Feature",
   },
   {
-    name: "Team Member 02",
-    role: "Backend & Generation",
-    contribution: "Implemented APIs for proposal PDFs, reports, attendance parsing, and flyer prompt generation.",
+    name: "Pranav Tahsildar",
+    role: "Proposals",
+    contribution: "Proposal Generation Feature",
   },
   {
-    name: "Team Member 03",
-    role: "Analytics & Planning",
-    contribution: "Worked on budget estimation, activity timelines, and post-event summary insights.",
+    name: "Sneha Yadav",
+    role: "Timeline Features",
+    contribution: "Timeline Feature",
   },
   {
-    name: "Team Member 04",
-    role: "Testing & Documentation",
-    contribution: "Handled validation, review, and project presentation materials.",
+    name: "Yashika Singh",
+    role: "Frontend & Budget",
+    contribution: "Frontend, Authentication & Budget Development",
+  },
+  {
+    name: "Aryan Yadav",
+    role: "Budget Management",
+    contribution: "Budget Preparation Feature",
+  },
+  {
+    name: "Yedhukrishna Vijayan",
+    role: "Core Integration",
+    contribution: "Events Integration Feature",
+  },
+  {
+    name: "Vijayraghavan Udaiyar",
+    role: "DevOps & Deployment",
+    contribution: "Project Deployment",
   },
 ];
 

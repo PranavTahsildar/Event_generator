@@ -307,9 +307,15 @@ if (!isSupabaseConfigured) {
 const getAuthClient = (): AuthClient => {
   if (supabase) {
     return {
-      ...supabase.auth,
+      exchangeCodeForSession: (authCode: string) => supabase.auth.exchangeCodeForSession(authCode),
+      getSession: () => supabase.auth.getSession(),
+      onAuthStateChange: (callback) => supabase.auth.onAuthStateChange(callback),
+      signUp: (payload) => supabase.auth.signUp(payload),
+      signInWithPassword: (payload) => supabase.auth.signInWithPassword(payload),
+      signOut: () => supabase.auth.signOut(),
+      updateUser: (payload) => supabase.auth.updateUser(payload),
       signInAsGuest: localAuth.signInAsGuest,
-    } as unknown as AuthClient;
+    };
   }
   return localAuth;
 };

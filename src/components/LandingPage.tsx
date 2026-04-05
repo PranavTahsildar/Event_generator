@@ -41,26 +41,17 @@ const featureCards = [
 ];
 
 const teamMembers = [
-  {
-    name: "Team Member 01",
-    role: "Frontend & Experience",
-    contribution: "Built the user journey, responsive layouts, and document flow screens.",
-  },
-  {
-    name: "Team Member 02",
-    role: "Backend & Generation",
-    contribution: "Implemented APIs for proposal PDFs, reports, attendance parsing, and flyer prompt generation.",
-  },
-  {
-    name: "Team Member 03",
-    role: "Analytics & Planning",
-    contribution: "Worked on budget estimation, activity timelines, and post-event summary insights.",
-  },
-  {
-    name: "Team Member 04",
-    role: "Testing & Documentation",
-    contribution: "Handled validation, review, and project presentation materials.",
-  },
+  { name: "Manal Ulde", role: "Report Generation", contribution: "Report Generation Feature" },
+  { name: "Amey Zode", role: "Attendance Management", contribution: "Attendance Sheet Generation Feature" },
+  { name: "Nancy Verma", role: "Flyer Design", contribution: "Flyer Generation Feature" },
+  { name: "Rushabh Singh", role: "Flyer Design", contribution: "Flyer Generation Feature" },
+  { name: "Aakash Valliyil", role: "Proposals", contribution: "Proposal Generation Feature" },
+  { name: "Pranav Tahsildar", role: "Proposals", contribution: "Proposal Generation Feature" },
+  { name: "Sneha Yadav", role: "Timeline Features", contribution: "Timeline Feature" },
+  { name: "Yashika Singh", role: "Frontend & Budget", contribution: "Frontend, Authentication & Budget Development" },
+  { name: "Aryan Yadav", role: "Budget Management", contribution: "Budget Preparation Feature" },
+  { name: "Yedhukrishna Vijayan", role: "Core Integration", contribution: "Events Integration Feature" },
+  { name: "Vijayraghavan Udaiyar", role: "DevOps & Deployment", contribution: "Project Deployment" },
 ];
 
 const footerLink = "https://www.pce.ac.in/";
