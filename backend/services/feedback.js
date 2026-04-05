@@ -68,6 +68,61 @@ const extractJson = (text = "") => {
   }
 };
 
+const normalizeQuestion = (question, index) => {
+  const type = ["rating", "text", "choice"].includes(question?.type) ? question.type : "text";
+  const label = String(question?.label || "").trim();
+
+  if (!label) {
+    return null;
+  }
+
+  const normalized = {
+    id: String(question?.id || `q${index + 1}`),
+    type,
+    label,
+    required: question?.required !== false,
+  };
+
+  if (type === "text") {
+    return {
+      ...normalized,
+      placeholder: String(question?.placeholder || "Share your thoughts...").trim(),
+    };
+  }
+
+  if (type === "choice") {
+    const options = Array.isArray(question?.options)
+      ? question.options.map((option) => String(option || "").trim()).filter(Boolean).slice(0, 4)
+      : [];
+
+    return {
+      ...normalized,
+      options: options.length >= 2 ? options : ["Excellent", "Good", "Average", "Poor"],
+    };
+  }
+
+  return normalized;
+};
+
+export const normalizeFeedbackForm = (payload = {}) => {
+  const fallback = buildFallbackQuestions(payload);
+  const rawQuestions = Array.isArray(payload?.questions) ? payload.questions : [];
+  const normalizedQuestions = rawQuestions
+    .map((question, index) => normalizeQuestion(question, index))
+    .filter(Boolean)
+    .slice(0, 10);
+
+  if (normalizedQuestions.length < 5) {
+    return fallback;
+  }
+
+  return {
+    formTitle: String(payload?.formTitle || fallback.formTitle).trim() || fallback.formTitle,
+    formSubtitle: String(payload?.formSubtitle || fallback.formSubtitle).trim() || fallback.formSubtitle,
+    questions: normalizedQuestions,
+  };
+};
+
 /**
  * Generic fallback questions when AI is unavailable.
  */
@@ -142,7 +197,7 @@ export const generateFeedbackQuestions = async (payload) => {
       const text = result.response.text().trim();
       const parsed = extractJson(text);
       if (parsed?.questions?.length >= 5) {
-        return { ...parsed, source: "gemini" };
+        return { ...normalizeFeedbackForm(parsed), source: "gemini" };
       }
     } catch (err) {
       console.warn("[Feedback] Gemini failed:", err.message);
@@ -170,7 +225,7 @@ export const generateFeedbackQuestions = async (payload) => {
         const text = data?.choices?.[0]?.message?.content || "";
         const parsed = extractJson(text);
         if (parsed?.questions?.length >= 5) {
-          return { ...parsed, source: "groq" };
+          return { ...normalizeFeedbackForm(parsed), source: "groq" };
         }
       }
     } catch (err) {

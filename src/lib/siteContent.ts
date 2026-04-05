@@ -1,24 +1,53 @@
 export const teamMembers = [
   {
-    name: "Team Member 01",
-    role: "Frontend & Experience",
-    contribution: "Built the user journey, responsive layouts, and document flow screens.",
+    name: "Manal Ulde",
+    role: "Report Generation",
+    contribution: "Developed the report generation module for event documentation output.",
   },
   {
-    name: "Team Member 02",
-    role: "Backend & Generation",
-    contribution: "Implemented APIs for proposal PDFs, reports, attendance parsing, and flyer prompt generation.",
+    name: "Amey Zode",
+    role: "Attendance System",
+    contribution: "Implemented the attendance system and related roster workflow.",
   },
   {
-    name: "Team Member 03",
-    role: "Analytics & Planning",
-    contribution: "Worked on budget estimation, activity timelines, and post-event summary insights.",
+    name: "Nancy Verma",
+    role: "Flyer Generation",
+    contribution: "Worked on flyer generation to support event promotion assets.",
   },
   {
-    name: "Team Member 04",
-    role: "Testing & Documentation",
-    contribution: "Handled validation, review, and project presentation materials.",
+    name: "Rushabh Singh",
+    role: "Flyer Generation",
+    contribution: "Worked on flyer generation to support event promotion assets.",
+  },
+  {
+    name: "Aakash Valliyil",
+    role: "Proposal Creation",
+    contribution: "Developed the proposal creation module for event approval workflows.",
+  },
+  {
+    name: "Pranav Tahsildar",
+    role: "Proposal Creation",
+    contribution: "Developed the proposal creation module for event approval workflows.",
+  },
+  {
+    name: "Sneha Yadav",
+    role: "AI Timeline Generation",
+    contribution: "Implemented the AI-based timeline generation feature for event planning.",
+  },
+  {
+    name: "Yashika Singh",
+    role: "Frontend & Authentication",
+    contribution: "Developed the frontend and authentication system, and also contributed to budget estimation.",
+  },
+  {
+    name: "Aryan Yadav",
+    role: "Budget Estimation",
+    contribution: "Worked on the budget estimation module for planning and cost analysis.",
+  },
+  {
+    name: "Yedhukrishna Vijayan",
+    role: "Event Module",
+    contribution: "Managed the event module functionality and related event management flow.",
   },
 ];
 
-export const footerLink = "https://www.pccoepune.com/";
