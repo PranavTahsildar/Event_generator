@@ -205,7 +205,7 @@ YouTube link here
 - Manal Ulde – Report Generation Feature 
 - Amey Zode – Attendance Sheet Generation Feature
 - Nancy Verma – Flyer Generation Feature
-- Rushabh Singh – Flyer Generstion Feature
+- Rushabh Singh – Flyer Generation Feature
 - Aakash  Valliyil – Proposal Generation Feature   
 - Pranav Tahsildar – Proposal Generation Feature  
 - Sneha Yadav – Timeline Feature
