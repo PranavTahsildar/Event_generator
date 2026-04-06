@@ -182,7 +182,7 @@ Event_generator/
 ---
 
 ## 🎥 Demo Video
-YouTube link here
+YouTube link here: https://www.youtube.com/watch?v=pJqGDfI_iHY
 
 ---
 
